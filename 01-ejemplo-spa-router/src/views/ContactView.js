@@ -1,19 +1,14 @@
-// ── IMPORT DINÁMICO ─────────────────────────────────────────────────────
-// A diferencia de "import X from './services/apiService.js'" en la parte
-// superior del archivo (import estático, se descarga siempre), aquí
-// cargamos el módulo SOLO cuando esta vista realmente se visita.
-// Esto reduce el JavaScript inicial que descarga el navegador: una
-// práctica clave de rendimiento en PWAs.
-
 export default async function ContactView() {
+
   const { default: ApiService } = await import("../services/apiService.js");
   const api = new ApiService();
 
   let posts = [];
   let error = null;
+
   try {
     posts = await api.getPosts();
-  } catch (e) {
+  }catch(e) {
     error = e.message;
   }
 
@@ -24,8 +19,7 @@ export default async function ContactView() {
   return `
     <div class="card">
       <h2>Contacto</h2>
-      <p>Este módulo (ApiService) se descargó justo ahora, de forma
-      diferida, al entrar a esta vista (revisa la pestaña Network).</p>
+      <p>Puedes escribirnos a contacto@demo-spa.com</p>
       ${listado}
     </div>
   `;
