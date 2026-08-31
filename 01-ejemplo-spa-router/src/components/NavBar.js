@@ -3,7 +3,7 @@
 // pero la idea de "una función = una pieza de UI reutilizable" es la misma
 // que en React.
 
-import { BASE_PATH } from "../config";
+import { BASE_PATH } from "../config.js";
 
 export default function renderActiveLink(path) {
   document.querySelectorAll("nav a[data-link]").forEach((link) => {
