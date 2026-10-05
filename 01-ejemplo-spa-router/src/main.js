@@ -6,6 +6,7 @@ import StorageView from "./views/StorageView.js";
 import IndexedDBView from "./views/IndexedDBView.js";
 import { registerServiceWorker } from "./pwa/registerSW.js";
 import ServiceWorkerView from "./views/ServiceWorkerView.js";
+import FetchLabView from "./views/FetchLabView.js";
 
 // Definimos el "mapa de rutas" de la aplicación. Por ahora las tres vistas
 // se importan de forma ESTÁTICA (se descargan siempre, al inicio).
@@ -16,6 +17,7 @@ const routes = [
   { path: "/almacenamiento", view: StorageView },
   { path: "/notas", view: IndexedDBView },
   { path: "/service-worker", view: ServiceWorkerView },
+  { path: "/fetch-cache", view: FetchLabView },
 
 ];
 

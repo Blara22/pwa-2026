@@ -57,3 +57,11 @@ self.addEventListener("message", (event) => {
   }
 });
 
+function reportFetch(request, source) {
+  self.clients.matchAll({ type: "window" }).then((clients) => {
+    const path = request.url.replace(self.location.origin, "");
+    clients.forEach((client) =>
+      client.postMessage({ type: "FETCH_LOG", method: request.method, path, source })
+    );
+  });
+}

@@ -196,6 +196,19 @@ async function unregisterServiceWorker() {
   await updatePanels();
 }
 
+async function checkForUpdate() {
+  const registration = await navigator.serviceWorker.getRegistration(SW_SCOPE);
+
+  if (!registration) {
+    showResult("No hay ningún SW registrado en este scope.");
+    return;
+  }
+
+  await registration.update();
+  showResult("Búsqueda terminada. Si sw.js cambió, aparecerá el aviso de nueva versión.");
+  await updatePanels();
+}
+
 document.addEventListener("click", async (event) => {
   const button = event.target.closest("[data-sw-action]");
   if (!button || !("serviceWorker" in navigator)) return;
@@ -250,6 +263,7 @@ export default async function ServiceWorkerView() {
         <button type="button" data-sw-action="check-update" class="btn-secundario">Buscar actualización</button>
         <button type="button" data-sw-action="unregister" class="btn-secundario">Dar de baja el SW</button>
       </div>
+      <p id="sw-result" class="sw-result"></p>
     </div>
 
     <div class="card">
@@ -267,4 +281,4 @@ export default async function ServiceWorkerView() {
       <div id="sw-scope-table">${renderScopeTable(status.scope)}</div>
     </div>
   `;
-}
+}

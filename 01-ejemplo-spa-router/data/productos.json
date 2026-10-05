@@ -1,0 +1,8 @@
+{
+  "actualizado": "v1",
+  "productos": [
+    { "id": 1, "nombre": "Café de olla", "precio": 45 },
+    { "id": 2, "nombre": "Pan dulce", "precio": 20 },
+    { "id": 3, "nombre": "Agua de jamaica", "precio": 25 }
+  ]
+}
