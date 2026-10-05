@@ -57,6 +57,53 @@ self.addEventListener("message", (event) => {
   }
 });
 
+function shouldHandle(request) {
+  if(request.method !== "GET") 
+    return false;
+
+  if(new URL(request.url).origin !== self.location.origin) 
+    return false;
+
+  if(request.cache === "only-if-cached" && request.mode !== "same-origin")
+    return false;
+
+  return true;
+}
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+
+  if(!shouldHandle(request)){
+    reportFetch(request, "ignored");
+    return;
+  }
+
+  event.respondWith(handleRequest(event));
+})
+
+async function handleRequest(event) {
+  const { request } = event;
+  const cache = await caches.open(CACHE_VERSION);
+  const lookup = request.mode === "navigate" ? "./index.html" : request;
+
+  const cached = await cache.match(lookup);
+  if(cached) {
+    console.log("[SW] HIT => ", request.url);
+    reportFetch(request, "cache");
+    return cached;
+  }
+
+  console.log("[SW] MISS => ", request.url);
+  const response = await fetch(request);
+
+  if(response.ok) {
+    event.waitUntil(cache.put(request, response.clone()));
+  }
+
+  reportFetch(request, "network");
+  return response;
+}
+
 function reportFetch(request, source) {
   self.clients.matchAll({ type: "window" }).then((clients) => {
     const path = request.url.replace(self.location.origin, "");
