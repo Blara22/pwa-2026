@@ -14,7 +14,7 @@ console.log("[SW] typeof caches => ", typeof caches);
 //Scope del service worker
 console.log("[SW] Scope => ", self.registration.scope);
 
-const CACHE_VERSION = "app-shell-v2";
+const CACHE_VERSION = "app-shell-v3";
 
 const API_ORIGIN = "https://jsonplaceholder.typicode.com";
 const CDN_ORIGIN = "https://cdn.jsdelivr.net";
@@ -48,6 +48,11 @@ const APP_SHELL = [
   "./data/productos.json",
   "./data/novedades.json",
   `${CDN_ORIGIN}/npm/idb@8/+esm`,
+  "./manifest.json",
+  "./icons/manifest-icon-192.maskable.png",
+  "./icons/manifest-icon-512.maskable.png",
+  "./icons/apple-icon-180.png",
+  "./icons/favicon-32.png",
 ];
 
 self.addEventListener("install", (event) => {

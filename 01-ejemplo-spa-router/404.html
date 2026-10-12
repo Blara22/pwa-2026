@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e2761" />
   <title>Demo SPA - Módulos ES6 + History API</title>
   
   <!-- Carga prioritaria de los estilos del Shell -->
   <link rel="stylesheet" href="styles/shell.css" />
   <!-- Estilos del contenido dinámico -->
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="./icons/favicon-32.png">
 </head>
 <body>
   
@@ -23,6 +26,7 @@
       <a href="/pwa-2026/01-ejemplo-spa-router/notas" data-link>Notas</a>
       <a href="/pwa-2026/01-ejemplo-spa-router/service-worker" data-link>Service Worker</a>
       <a href="/pwa-2026/01-ejemplo-spa-router/fetch-cache" data-link>Fetch y caché</a>
+      <a href="/pwa-2026/01-ejemplo-spa-router/manifest" data-link>Manifest</a>
       <a href="/pwa-2026/01-ejemplo-spa-router/ruta-inexistente" data-link>Ruta inválida (demo 404)</a>
     </nav>
   </header>
@@ -45,4 +49,4 @@
 
   <script type="module" src="src/main.js"></script>
 </body>
-</html>
+</html>
