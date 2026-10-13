@@ -223,3 +223,12 @@
 .icon-preview.icon-mask {
   border-radius: 50%;
 }
+
+.install-actions { 
+  margin-top: 1rem; 
+}
+
+.storage-actions button:disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed; 
+}
