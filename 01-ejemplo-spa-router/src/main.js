@@ -8,6 +8,7 @@ import ServiceWorkerView from "./views/ServiceWorkerView.js";
 import FetchLabView from "./views/FetchLabView.js";
 import ManifestView from "./views/ManifestView.js";
 import InstallView from "./views/InstallView.js";
+import SyncView from "./views/SyncView.js";
 import { registerServiceWorker } from "./pwa/registerSW.js";
 import { initConnectionStatus } from "./pwa/connectionStatus.js";
 import { initInstallPrompt } from "./pwa/installPrompt.js";
@@ -25,7 +26,8 @@ const routes = [
   { path: "/service-worker", view: ServiceWorkerView },
   { path: "/fetch-cache", view: FetchLabView },
   { path: "/manifest", view: ManifestView },
-  { path: "/instalacion", view: InstallView}
+  { path: "/instalacion", view: InstallView},
+  { path: "/sincronizacion", view: SyncView }
 ];
 
 
