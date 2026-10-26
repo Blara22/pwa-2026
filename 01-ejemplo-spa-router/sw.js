@@ -14,7 +14,7 @@ console.log("[SW] typeof caches => ", typeof caches);
 //Scope del service worker
 console.log("[SW] Scope => ", self.registration.scope);
 
-const CACHE_VERSION = "app-shell-v6";
+const CACHE_VERSION = "app-shell-v7";
 
 const API_ORIGIN = "https://jsonplaceholder.typicode.com";
 const CDN_ORIGIN = "https://cdn.jsdelivr.net";
@@ -65,7 +65,10 @@ const APP_SHELL = [
   "./src/views/InstallView.js",
   "./src/views/ManifestView.js",
   "./src/views/SyncView.js",
-  "./src/pwa/backgroundSync.js"
+  "./src/pwa/backgroundSync.js",
+  "./src/pwa/geolocation.js",
+  "./src/pwa/share.js",
+  "./src/views/LocationView.js"
 ];
 
 self.addEventListener("install", (event) => {
