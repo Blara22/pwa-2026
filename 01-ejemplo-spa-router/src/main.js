@@ -14,6 +14,7 @@ import { registerServiceWorker } from "./pwa/registerSW.js";
 import { initConnectionStatus } from "./pwa/connectionStatus.js";
 import { initInstallPrompt } from "./pwa/installPrompt.js";
 import { initInstallButton } from "./pwa/installButton.js";
+import { initNotificationButton } from "./pwa/notificationButton.js";
 
 
 // Definimos el "mapa de rutas" de la aplicación. Por ahora las tres vistas
@@ -42,5 +43,6 @@ initInstallPrompt();
 router.init();
 initConnectionStatus();
 initInstallButton();
+initNotificationButton();
 
 window.addEventListener("load", () => registerServiceWorker());
