@@ -14,7 +14,7 @@ console.log("[SW] typeof caches => ", typeof caches);
 //Scope del service worker
 console.log("[SW] Scope => ", self.registration.scope);
 
-const CACHE_VERSION = "app-shell-v8";
+const CACHE_VERSION = "app-shell-v10";
 
 const API_ORIGIN = "https://jsonplaceholder.typicode.com";
 const CDN_ORIGIN = "https://cdn.jsdelivr.net";
@@ -38,6 +38,7 @@ const APP_SHELL = [
   "./src/config.js",
   "./src/router/router.js",
   "./src/components/NavBar.js",
+  "./src/components/NovedadesList.js",
   "./src/pwa/registerSW.js",
   "./src/pwa/connectionStatus.js",
   "./src/views/HomeView.js",
@@ -71,7 +72,9 @@ const APP_SHELL = [
   "./src/pwa/share.js",
   "./src/views/LocationView.js",
   "./src/pwa/notifications.js",
-  "./src/pwa/notificationButton.js"
+  "./src/pwa/notificationButton.js",
+  "./src/components/lazyComponents.js",
+  "./assets/hero.jpg",
 ];
 
 self.addEventListener("install", (event) => {

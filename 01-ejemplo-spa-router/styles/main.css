@@ -269,3 +269,38 @@
 #geo-result {
   margin-top: 1rem;
 }
+
+/* HOME */
+
+.hero {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.gallery-item figcaption {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.lazy-slot {
+  min-height: 9rem;
+}
